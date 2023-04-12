@@ -1,6 +1,8 @@
 var text = document.getElementById("your-div").innerHTML;  
 // Check if it starts with an http. Stop on a space bar 
  let rep = text.match(/(?:^|[ ])http([^\s]+)/gi);
+// Check if there is a match
+if(rep) {
 for(let i = 0; i < rep.length;  
 i++) { 
 console.log(rep[i]);  
@@ -23,4 +25,5 @@ console.log(link);
 
 var re = document.getElementById("your-div");
 re.innerHTML = re.innerHTML.replace(rep[i], "<a style='text-decoration: none; color: teal; font-weight: bold;' href='"+link+"'>"+link+"</a>"); 
- }
+ } 
+}
