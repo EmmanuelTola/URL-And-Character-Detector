@@ -1,0 +1,42 @@
+<p id="text">
+Automatically detect Url links and words starting with specific characters like 
+@ or # in a text field. @urldetector https://github.com/E-TechDev. 
+</p>
+
+<script>
+ 
+var text = document.getElementById("text").innerHTML;  
+ 
+let rel = text.match(/(?:^|[ ])@([a-zA-Z0-9]+)/gi);
+for(let i = 0; i < rel.length;  
+i++) { 
+console.log(rel[i]); 
+var url = "https://";
+let post = rel[i].split(" @").join(""); 
+
+var re = document.getElementById("text");
+re.innerHTML = re.innerHTML.replace(rel[i], "<a style='text-decoration: none; color: purple; font-weight: bold;' href='"+url+post+"'>"+rel[i]+"</a>"); 
+ } 
+ 
+ let rep = text.match(/(?:^|[ ])http([^\s]+)/gi);
+for(let i = 0; i < rep.length;  
+i++) { 
+console.log(rep[i]); 
+let pos = rep[i]; 
+var check = pos.slice(-1); 
+console.log(check); 
+if(check == ".") { 
+var lastIndex = pos.lastIndexOf('.');
+var replacement = "";
+var link =  pos.slice(0, lastIndex) + replacement + pos.slice(lastIndex + 1);
+console.log(link); 
+} else { 
+var link = rep[i];
+console.log(link); 
+}
+ 
+
+var re = document.getElementById("text");
+re.innerHTML = re.innerHTML.replace(rep[i], "<a style='text-decoration: none; color: teal; font-weight: bold;' href='"+link+"'>"+link+"</a>"); 
+ }
+</script>
