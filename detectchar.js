@@ -1,6 +1,8 @@
 var text = document.getElementById("your-div").innerHTML;  
 // Select every word that begins with an @. Can be used for # too 
 let rel = text.match(/(?:^|[ ])@([a-zA-Z0-9]+)/gi);
+// Check if there is a match 
+if(rel) {
 for(let i = 0; i < rel.length;  
 i++) { 
 console.log(rel[i]); 
@@ -11,4 +13,4 @@ let post = rel[i].split(" @").join("");
 var re = document.getElementById("your-div");
 re.innerHTML = re.innerHTML.replace(rel[i], "<a style='text-decoration: none; color: purple; font-weight: bold;' href='"+url+post+"'>"+rel[i]+"</a>"); 
  } 
- 
+ }
