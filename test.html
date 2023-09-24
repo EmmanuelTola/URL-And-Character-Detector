@@ -1,64 +1,9 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap'); 
     
-</style><p id="text" style="font-family: 'Montserrat', serif; line-height: 35px; font-size: 19px; padding: 10px;">
+</style><p id="your-div" style="font-family: 'Montserrat', serif; line-height: 35px; font-size: 19px; padding: 10px;">
 Automatically Detect Url links and words starting with specific characters (E.g: @ or #) in a text field. @urldetector @chardetect #developer. <br> https://github.com/E-TechDev. 
 </p>
 
-<script>
- 
-var text = document.getElementById("text").innerHTML;  
- 
-let rel = text.match(/(?:^|[ ])@([a-zA-Z0-9]+)/gi); 
-if(rel) {
-for(let i = 0; i < rel.length;  
-i++) { 
-console.log(rel[i]); 
-var url = "https://";
-let post = rel[i].split(" @").join(""); 
-
-var re = document.getElementById("text");
-re.innerHTML = re.innerHTML.replace(rel[i], "<a style='text-decoration: none; color: purple; font-weight: bold;' href='"+url+post+"'>"+rel[i]+"</a>"); 
- } }
-  
-  
-  
-  let bel = text.match(/(?:^|[ ])#([a-zA-Z0-9]+)/gi); 
-   
-  if(bel) {
-for(let i = 0; i < bel.length;  
-i++) { 
-console.log(bel[i]); 
-var urls = "https://";
-let posts = bel[i].split(" @").join(""); 
-
-var re = document.getElementById("text");
-re.innerHTML = re.innerHTML.replace(bel[i], "<a style='text-decoration: none; color: purple; font-weight: bold;' href='"+urls+posts+"'>"+bel[i]+"</a>"); 
- } 
- } 
-  
-  
-  
- let rep = text.match(/(?:^|[ ])http([^\s]+)/gi);
- if(rep) {
-for(let i = 0; i < rep.length;  
-i++) { 
-console.log(rep[i]); 
-let pos = rep[i]; 
-var check = pos.slice(-1); 
-console.log(check); 
-if(check == ".") { 
-var lastIndex = pos.lastIndexOf('.');
-var replacement = "";
-var link =  pos.slice(0, lastIndex) + replacement + pos.slice(lastIndex + 1);
-console.log(link); 
-} else { 
-var link = rep[i];
-console.log(link); 
-}
- 
-
-var re = document.getElementById("text");
-re.innerHTML = re.innerHTML.replace(rep[i], "<a style='text-decoration: none; color: teal; font-weight: bold;' href='"+link+"'>"+link+"</a>"); 
- } }
-</script>
+<script src="urldetect.js"></script>
+<script src="detectchar.js"></script>
